@@ -4,10 +4,8 @@
 
 | Column             | Type    | Options     |
 | ------------------ | ------- | ----------- |
-| user_name          | string  | null: false |
-| user_number        | string  | null: false |
-| first_name         | string  | null: false |
-| last_name          | string  | null: false |
+| name               | string  | null: false |
+| number             | string  | null: false |
 | division_id        | integer | null: false |
 | office_id          | integer | null: false |
 | email              | string  | null: false |
