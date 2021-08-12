@@ -1,0 +1,27 @@
+
+  <div class="form-wrapper">
+    <h1 class="login">ログイン</h1>
+    <%= form_with model: @user, url: user_session_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+      
+      <div class="form-item">
+        <%= f.label :メールアドレス %><br />
+        <%= f.email_field :email, autofocus: true,required: "required",placeholder:"メールアドレスを入力してください"%>
+      </div>
+
+      <div class="form-item">
+        <%= f.label :パスワード %><br />
+        <%= f.password_field :password, required: "required",placeholder:"パスワードを入力してください" %>
+      </div>
+
+
+      <div class="button-panel">
+        <%= f.submit "ログイン", class: "button" %>
+      </div>
+    <% end %>
+
+    <div class="form-footer"> <%#後ほどlinkto%>
+      <p><a href="#">新規にアカウントを作成する</a></p>
+    </div>
+  </div>
+
+
