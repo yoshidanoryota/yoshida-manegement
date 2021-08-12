@@ -24,7 +24,9 @@ class User < ApplicationRecord
     
     with_options format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/ } do
       validates :name
+
     end
+    
   end
 
 
