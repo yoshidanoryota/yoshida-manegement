@@ -1,0 +1,195 @@
+
+.header {
+  box-sizing: border-box;
+  width: 100%;
+  height: 120px;
+}
+
+
+
+.box {
+  box-sizing: border-box;
+}
+
+/* ========== header ========== */
+
+
+/* ========== nav ========== */
+.box-nav {
+  width: 100%;
+  height: 100px;
+  background: #3a3a3a;
+  
+}
+
+.inner-nav {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0;
+  margin: 0 auto;
+  line-height: 40px;
+  list-style: none;
+  background: #3a3a3a;
+  
+}
+
+.menu {
+  margin-top: 27px;
+  padding: 0 10px;
+  color: #fff;
+  height: 100%;
+}
+
+.menu:hover {
+  background: #7a7a7a;
+  list-style: none;
+}
+
+.menuuu {
+  color: #fff;
+  text-decoration: none;
+}
+
+.list-pict1{
+  height: 80px;
+  margin-top: 5px;
+}
+.list-pict2{
+  height: 80px;
+  margin-top: 5px;
+}
+.list-pict3{
+  height: 80px;
+  margin-top: 5px;
+  margin-right: 600px;
+}
+
+/* ========== sp ========== */
+@media screen and (max-width: 480px) {
+  .header-7 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    padding: 0 0.8em;
+  }
+
+  .box-nav {
+    display: none;
+  }
+
+  .sp-nav {
+    display: block;
+  }
+
+  .box-logo {
+    height: 60px;
+  }
+
+  .logo-img {
+    width: 70px;
+  }
+}
+
+
+/* ========== index ========== */
+
+
+
+.sistem{
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.sistem2{
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+
+
+.clock-main{
+  width: 500px;
+  height: 100px;
+  background-image: url(https://livedoor.blogimg.jp/sizen_go-wdm/imgs/0/3/03924212.jpg);
+  border-radius: 20px;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 4px solid #ee3e52;
+}
+
+.date{
+  font-size: 15px;
+  color: #fff;
+}
+
+.time{
+  font-size: 60px;
+  color: #fff;
+  font-weight: 900;
+}
+
+
+
+
+.sistem-list{
+  margin-top: 20px;
+  list-style: none;
+  display: flex;
+}
+
+.sistem-btn{
+  background-color: #ee3e52;
+  border-radius: 20px;
+  width: 200px;
+  color: #fff;
+  font-size: 45px;
+  font-weight: 450;
+  display: inline-block;
+  text-align: center;
+  line-height: 100px;
+  margin: 0 5px;
+  box-shadow: 0px 4px 4px 0px rgba(63, 38, 38, 0.5);
+}
+
+.sistem-btn:hover{
+ 
+  opacity: 0.5 ;
+}
+
+.comment-body{
+    width: 600px;
+    height: 80px;
+    border-radius: 20px;
+    margin-top: 30px;
+    border: 4px solid #ee3e52;
+  background-color: #fff;
+}
+
+.comment-main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.comment{
+  padding: 5px 10px;
+  font-size: 15px;
+}
+
+/* ========== index ========== */
+
+
+
+
+
+
+
+
+
+
+

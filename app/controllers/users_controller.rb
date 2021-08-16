@@ -2,9 +2,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to root_path, notice: "登録に成功しました"
+      redirect_to root_path
     else
-      redirect_to new_user_path, notice: "入力に不備があります"
+      render :create
+    end
   end
 
   private 
