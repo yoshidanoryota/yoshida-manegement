@@ -35,6 +35,7 @@
 ### Association
 - has_one :outs
 - belongs_to :user
+- has_many :comments
 
 
 

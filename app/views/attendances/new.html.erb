@@ -1,0 +1,73 @@
+<header class="header">
+    <div class="box box-nav">
+      <ul class="inner-nav">
+        <li><%= image_tag "risu.png", class:"list-pict1" %></li>
+        <li><%= image_tag "risu.png", class:"list-pict2" %></li>
+        <li><%= image_tag "risu.png", class:"list-pict3" %></li>
+        <%= link_to "#{current_user.name}さん", root_path, class: :menu %>
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: :menu %>
+      </ul>
+    </div>
+</header>
+
+
+<div class="new-main">
+  <div>
+    <%=link_to 'TOPにもどる', root_path, class:"back-btn" %>
+  </div>
+  <div class="title">
+    <h1>出勤入力画面</h1>
+  </div>
+
+  <%= form_with model: @attendance, local: true do |f| %>
+
+  <div class="form-body">
+    <%# 日付 %>
+    <div class="attendance-date">
+      <div class="weight-bold-text">
+            日付
+      </div>
+          <%= f.date_field :attendance_day, class:"today-date", id:"today-date"%>
+    </div>
+    <%# 日付 %>
+
+    <%# スタイル %>
+    <div class="attendance--style">
+      <div class="weight-bold-text">
+            出勤時間
+      </div>
+          <%= f.collection_select(:arrive_id, Arrive.all, :id, :name, {}, {class:"atttendance-style"}) %>
+    </div>
+    <%# スタイル %>
+
+    <%# 早出 %>
+    <div class="attendance--style">
+      <div class="weight-bold-text">
+            時間外時間(早出)
+      </div>
+          <%= f.text_field :flying_id, class:"atttendance-style" %>
+          <div>
+          ※例） 時間外時間が1時間の場合：0100<br>
+          ※例） 時間外時間が30分の場合：0030<br>
+          ※例） 時間外時間が1時間30分の場合：0130
+          </div>
+    </div>
+    <%# 早出 %>
+
+    <%# ボタン %>
+    <div class="attendance-button">
+      <%= f.submit "出勤登録する" ,class:"button" %>
+    </div>
+    <%# /ボタン %>
+
+  </div>
+
+  
+  <%end%>
+
+  
+
+
+
+
+</div>

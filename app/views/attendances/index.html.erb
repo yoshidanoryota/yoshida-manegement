@@ -1,0 +1,44 @@
+<header class="header">
+    <div class="box box-nav">
+      <ul class="inner-nav">
+        <li><%= image_tag "risu.png", class:"list-pict1" %></li>
+        <li><%= image_tag "risu.png", class:"list-pict2" %></li>
+        <li><%= image_tag "risu.png", class:"list-pict3" %></li>
+        <%= link_to "#{current_user.name}さん", root_path, class: :menu %>
+         <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: :menu %>
+      </ul>
+    </div>
+</header>
+
+
+  <div class= "main-body">
+    <div class="sistem">
+        <div class="clock-main">
+          <span id ="date" class="date"></span>
+          <span id ="clock" class="time"></span>
+        </div> 
+    </div>
+
+    <div class="sistem2">
+      <div class="sistem-sistem">
+          <ul class="sistem-list">
+            <%= link_to "出勤する", new_attendance_path, class: :sistem_btn %>
+            
+            <a href="#"><li class="sistem_btn">退勤する</li></a>
+          </ul>
+          <ul class="sistem-list">
+            <a href="#"><li class="sistem_btn">休暇申請</li></a>
+            <a href="#"><li class="sistem_btn">勤怠修正</li></a>
+          </ul>
+      </div>  
+    </div>  
+
+    <div class="comment-main">
+    <div class="comment-body">
+      <p class="comment">ここにコメント</p>
+    </div>
+    </div>  
+  </div>
+
+
+

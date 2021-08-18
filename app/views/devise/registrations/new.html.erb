@@ -1,7 +1,9 @@
+
   <div class="form-wrapper">
     <h1 class="login">新規登録</h1>
     <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
       
+      <%= render 'layouts/error_messages', model: f.object %>
 
        <div class="form-item">
         <%= f.label :■お名前（全角） %><span class="name-note">※スペースを空けずに入力してください</span><br />
@@ -26,8 +28,8 @@
       
 
       <div class="form-item">
-        <%= f.label :■社員番号（半角） %><br />
-        <%= f.text_field :number, required: "required",placeholder:"社員番号を入力してください  例）123456" %>
+        <%= f.label :■社員コード（半角） %><br />
+        <%= f.text_field :number, required: "required",placeholder:"社員コードを入力してください  例）123456" %>
       </div>
 
       <div class="form-item">
