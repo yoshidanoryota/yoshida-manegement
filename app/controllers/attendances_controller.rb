@@ -10,7 +10,7 @@ class AttendancesController < ApplicationController
   end
 
   def create
-    @attendance = Attendance.new(item_params)
+    @attendance = Attendance.new(attendance_params)
     if @attendance.save
       redirect_to root_path
       flash[:notice] = '出勤データが送信されました。今日も1日頑張りましょう！' 
@@ -24,7 +24,7 @@ class AttendancesController < ApplicationController
 
   private
 
-  def item_params
+  def attendance_params
     params.require(:attendance).permit(:attendance_day, :arrive_id, :flying_id ).merge(user_id: current_user.id)
   end
 
