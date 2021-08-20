@@ -1,0 +1,47 @@
+.comment-button .cbutton {
+  background: #f16272;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  height: 50px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2em;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: uppercase;
+  transition: background 0.3s ease-in-out;
+  width: 250px;
+  margin-top: 60px;
+}
+
+.cbutton:hover {
+  background: #ee3e52;
+}
+
+.comment-form{
+  margin-top: 70px;
+  text-align: center;
+  
+  
+}
+
+.comment{
+  font-weight: bold;
+  color: black;
+}
+
+.form-comment{
+  width: 500px;
+  height: 100px;
+  font: 400 87.5%/1.5em 'Open Sans', sans-serif;
+  font-size: 15px;
+}
+
+.form-comment::placeholder { 
+  position: absolute;
+  top: 0.1em;
+  
+}
+
+
+

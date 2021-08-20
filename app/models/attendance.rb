@@ -1,6 +1,7 @@
 class Attendance < ApplicationRecord
 
   belongs_to :user
+  #has_one :comment
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :arrive
