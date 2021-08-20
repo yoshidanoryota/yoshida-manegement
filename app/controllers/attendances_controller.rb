@@ -3,6 +3,7 @@ class AttendancesController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @comment = Comment.all
   end
 
   def new

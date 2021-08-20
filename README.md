@@ -89,3 +89,19 @@
 
 ### Association
 - belongs_to :user
+
+
+
+
+
+
+## commentsテーブル
+
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| user          | references | null: false, foreign_key: true |
+| text          | string     |                                |
+
+
+### Association
+- belongs_to :user

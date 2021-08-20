@@ -27,16 +27,34 @@
             <%= link_to "退勤する", new_out_path, class: :sistem_btn %>
           </ul>
           <ul class="sistem-list">
-            <a href="#"><li class="sistem_btn">休暇申請</li></a>
+            <%= link_to "休暇申請", new_rest_path, class: :sistem_btn %>
             <a href="#"><li class="sistem_btn">勤怠修正</li></a>
           </ul>
       </div>  
     </div>  
 
     <div class="comment-main">
-    <div class="comment-body">
-      <p class="comment">ここにコメント</p>
-    </div>
+      <div class="comment-body">
+        <p class="comment">
+        <% @comment.each do |comment| %>
+         <%= comment.text %>
+        <% end %>
+        </p>
+      </div>
+
+      <% if current_user.division_id == 5 %>
+      
+        <div class= "comment-menu">
+        <% if @comment.present? %>
+          <%= link_to "コメントを編集する", "/comments/1/edit", class: :comment_btn %>
+
+        <%else%>  
+          <%= link_to "新規コメント", new_comment_path, class: :comment_btn%><br>
+        <%end%>  
+         
+        </div>
+      <% end %>
+
     </div>  
   </div>
 

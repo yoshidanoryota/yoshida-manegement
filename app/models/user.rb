@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
 has_many :attendances
 has_many :outs
+has_many :comments
+
 
 
   extend ActiveHash::Associations::ActiveRecordExtensions
