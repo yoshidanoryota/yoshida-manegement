@@ -18,6 +18,22 @@ class OutsController < ApplicationController
     end
   end
 
+  def edit
+    @out = Out.find(params[:id])
+  end
+
+  def update
+    out = Out.find(params[:id])
+    if out.update(out_params)
+      redirect_to root_path
+      flash[:notice] = '退勤データが変更されました。' 
+    else
+      flash.now[:alert] = '入力に不備があります'
+      render :new
+    end
+  end
+
+
 
 
   private

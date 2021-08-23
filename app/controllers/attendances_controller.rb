@@ -4,6 +4,7 @@ class AttendancesController < ApplicationController
 
   def index
     @comment = Comment.all
+    @attendances = Attendance.all
   end
 
   def new
@@ -15,6 +16,21 @@ class AttendancesController < ApplicationController
     if @attendance.save
       redirect_to root_path
       flash[:notice] = '出勤データが送信されました。今日も1日頑張りましょう！' 
+    else
+      flash.now[:alert] = '入力に不備があります'
+      render :new
+    end
+  end
+
+  def edit
+    @attendance = Attendance.find(params[:id])
+  end
+
+  def update
+    attendance = Attendance.find(params[:id])
+    if attendance.update(attendance_params)
+      redirect_to root_path
+      flash[:notice] = '出勤データが変更されました。' 
     else
       flash.now[:alert] = '入力に不備があります'
       render :new

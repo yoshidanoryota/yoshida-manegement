@@ -1,0 +1,108 @@
+<header class="header">
+    <div class="box box-nav">
+      <ul class="inner-nav">
+        <li><%= image_tag "risu.png", class:"list-pict1" %></li>
+        <li><%= image_tag "risu.png", class:"list-pict2" %></li>
+        <li><%= image_tag "risu.png", class:"list-pict3" %></li>
+        <%= link_to "#{current_user.name}さん", root_path, class: :menu %>
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: :menu %>
+      </ul>
+    </div>
+</header>
+
+
+<div class="new-main">
+  <div>
+    <%=link_to 'TOPにもどる', root_path, class:"back-btn" %>
+  </div>
+  <div class="title">
+    <h1><%= "#{current_user.name}さんの勤怠記録" %></h1>
+  </div>
+
+ <div class="table-body">
+  <table>
+    <tr>
+      <th class="dateth">日付</th>
+      <th class="table-th">出社</th>
+      <th class="table-th">早出時間</th>
+      <th class="table-th">退勤</th>
+      <th class="table-th">残業時間</th>
+      <th class="tabele-left"></th>
+      <th class="tabele-right"></th>
+    </tr>
+
+
+    <% @attendances.zip(@outs) do |attendance, out| %>
+
+      <tr>
+        <% wd = ["日", "月", "火", "水", "木", "金", "土"]%>
+        <td><%= attendance.attendance_day.strftime("%Y年 %m月 %d日(#{wd[attendance.attendance_day.wday]})") %></td>
+     
+        <% if attendance.arrive_id == 2 %>
+        <td>9:00（通常出勤）</td>
+        <%elsif attendance.arrive_id == 3%>
+        <td>9:00（在宅勤務）</td>
+        <%elsif attendance.arrive_id == 4%>
+        <td>7:30（時差出勤）</td>
+        <%elsif attendance.arrive_id == 5%>
+        <td>10:30(時差出勤）</td>
+        <%elsif attendance.arrive_id == 6%>
+        <td>13:00(午後出勤）</td>
+        <%end%>
+
+        <% if attendance.flying_id.present? %>
+        <td><%= attendance.flying_id %></td>
+        <%else%>
+        <td>0</td>
+        <%end%>
+
+      <% if out.off_id == 2 %>
+        <td>17:30(通常出勤)</td>
+        <%elsif out.off_id == 3%>
+        <td>17:30(在宅勤務）</td>
+        <%elsif out.off_id == 4%>
+        <td>16:00(時差出勤）</td>
+        <%elsif out.off_id == 5%>
+        <td>19:00(時差出勤）</td>
+        <%elsif out.off_id == 6%>
+        <td>12:00(午後休暇）</td>
+        <%end%>
+
+
+        <% if out.extra_id.present? %>
+        <td><%= out.extra_id %></td>
+        <%else%>
+        <td>0</td>
+        <%end%>
+
+        
+
+        <td class ="edit"><%= link_to "出勤を編集する", edit_attendance_path(attendance.id), class: :corrects_btn %></td>
+        <td class="edit2"><%= link_to "退勤を編集する", edit_out_path(out.id), class: :corrects_btn %></td>
+      </tr>
+    
+
+
+    
+    </tr>
+    <% end %>
+    
+  </table>
+
+</div>
+
+
+
+  <%#if attendance.arrive_id == 3 %>
+
+  <%#elsif attendance.arrive_id == 4 %>
+  
+  <%#elsif attendance.arrive_id == 5 %>
+  
+  <%#end%>
+
+  <%#= attendance.attendance_day %>
+
+  <%#unless attendance.flying_id.present?  %>
+  
+  <%#end%>
