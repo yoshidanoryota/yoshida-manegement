@@ -13,10 +13,10 @@
     <%=link_to 'TOPにもどる', root_path, class:"back-btn" %>
   </div>
   <div class="title">
-    <h1>退勤入力画面</h1>
+    <h1>休暇編集画面</h1>
   </div>
 
-  <%= form_with model: @out, local: true do |f| %>
+  <%= form_with model: @rest, local: true do |f| %>
 
   <div class="form-body">
     <%# 日付 %>
@@ -24,45 +24,41 @@
       <div class="weight-bold-text">
             日付
       </div>
-          <%= f.date_field :out_day, class:"today-date", id:"today-date"%>
+          <%= f.date_field :rest_day, class:"today-date", id:"today-date"%>
     </div>
     <%# 日付 %>
 
     <%# スタイル %>
     <div class="attendance--style">
       <div class="weight-bold-text">
-            退勤時間
+            休暇区分
       </div>
-          <%= f.collection_select(:off_id, Off.all, :id, :name, {}, {class:"atttendance-style"}) %>
+          <%= f.collection_select(:holiday_id, Holiday.all, :id, :name, {}, {class:"atttendance-style"}) %>
     </div>
     <%# スタイル %>
 
-    <%# 残業 %>
-    <div class="attendance--style">
-      <div class="weight-bold-text">
-            時間外時間
-</div>
-          <%= f.text_field :extra_id, class:"attendance-style-flying", value:0%> 
-          <span class="weight-bold-text">時間</span>
-          <div>
-          <br>
-          ※注) 半角数字で入力<br>
-          ※注) 時間単位で入力<br>
-          ※例) 時間外時間が1時間30分の場合：1.5
-          </div>
-    </div>
-    <%# 残業 %>
 
     <%# ボタン %>
     <div class="attendance-button">
-      <%= f.submit "退勤登録する" ,class:"button" %>
+      <%= f.submit "休暇申請する" ,class:"button" %>
     </div>
     <%# /ボタン %>
 
-  </div>
+    <p class="rest-p">or</p>
+   <%end%>
 
-  
-  <%end%>
+    <%# ボタン %>
+    <div class="delete_btn">
+        <%= link_to "休暇を取り消す", rest_path(@rest.id), method: :delete, class: "rests-show_btn" %> 
+    </div>     
+    <%# /ボタン %>
+
+    <%# リンク %>
+      <div class="link-btn">
+        <%=link_to '休暇履歴にもどる', rests_path, class:"link-btn" %>
+      <div>  
+    <%# /リンク %>
+  </div>
 
   
 

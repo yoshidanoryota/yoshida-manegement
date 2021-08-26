@@ -1,0 +1,76 @@
+<header class="header">
+    <div class="box box-nav">
+      <ul class="inner-nav">
+        <%= link_to "#{current_user.name}さん", user_path(current_user.id), class: :menu %>
+         <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: :menu %>
+      </ul>
+    </div>
+</header>
+
+
+<div class="new-main">
+  <div class="back-btn">
+    <%=link_to 'TOPにもどる', root_path, class:"back-btn" %>
+    <button class="print" onclick="window.print();">勤怠記録を印刷する</button>
+  </div>
+
+  
+
+
+  <div class="title">
+    <h1><%= "#{current_user.name}さん" %></h1>
+  </div>
+
+  <div class="show-text-parant">
+  <% wd = ["日", "月", "火", "水", "木", "金", "土"]%>
+  <h2 class="show-table-text"> <%= Date.today.strftime("%Y年%m月%d日(#{wd[Date.today.wday]})") %> 現在</h2>
+  </div>
+
+  <div class="table-show-body">
+  <table class="show-table">
+    <tr class="show-tr">
+      <th class="show-th" colspan="2"><%= Date.today.strftime("%Y年 %m月") %></th>
+      <th class="show-th" colspan="2"><%= Date.today.strftime("%Y年") %></th>
+    </tr>
+
+    <tr class="show-tr">
+      <td class="show-td hidari">時間外時間（就業前）</td><td class="show-td"><%=@flying_month%> 時間</td>
+      <td class="show-td hidari">時間外時間（就業前）</td><td class="show-td"><%=@flying_year%> 時間</td>
+      
+
+    </tr>
+
+    <tr class="show-tr">
+      <td class="show-td hidari">時間外時間（就業後）</td><td class="show-td"><%=@extra_month%> 時間</td>
+      <td class="show-td hidari">時間外時間（就業後）</td><td class="show-td"><%=@extra_year%> 時間</td>
+
+
+    <tr class="show-tr">
+      <td class="show-td hidari">時間外時間（合計）</td><td class="show-td"><%=@fll_time_month%> 時間</td>
+      <td class="show-td hidari">時間外時間（合計）</td><td class="show-td"><%=@fll_time_year%> 時間</td>
+    </tr>
+
+    <tr class="show-tr">
+      <td class="show-td hidari">有給取得数</td><td class="show-td"><%= @rest_month %>日</td>
+      <td class="show-td hidari">有給残日数</td><td class="show-td"><%= 40 - @rest_year%>日</td>
+    </tr>
+
+    <tr class="show-tr">
+      <td class="show-td hidari">空</td><td class="show-td">空</td>
+      <td class="show-td hidari">空</td><td class="show-td">空</td>
+    </tr>
+
+    <tr class="show-tr">
+      <td class="show-td hidari">空</td><td class="show-td">空</td>
+      <td class="show-td hidari">空</td><td class="show-td">空</td>
+    </tr>
+
+    
+
+    
+  </table>
+
+</div>
+
+
+

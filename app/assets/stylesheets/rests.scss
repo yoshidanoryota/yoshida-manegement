@@ -1,3 +1,64 @@
 // Place all the styles related to the rests controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.link-btn{
+  color: blue;
+  text-decoration: none;
+  margin-top: 40px;
+}
+
+.table-th-rests{
+  width: 200px;
+}
+
+
+
+.rests_btn{
+  margin: 0 5px 5px 5px;
+  text-decoration: none;
+  background-color: #ee3e52;
+  width: 160px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 400;
+  display: inline-block;
+  text-align: center;
+  line-height: 40px;
+  box-shadow: 0px 4px 4px 0px rgba(63, 38, 38, 0.5);
+  text-decoration: none;
+}
+
+.rests_btn:hover{
+  opacity: 0.5;
+}
+
+
+
+.rest-p{
+  font-size: 20px;
+  font-weight: bold;
+  margin: 20px 0 20px 0;
+}
+
+.rests-show_btn{
+  background: #f16272;
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2em;
+  letter-spacing: 0.05em;
+  display: inline-block;
+  text-align: center;
+  text-transform: uppercase;
+  transition: background 0.3s ease-in-out;
+  width: 250px;
+  line-height: 50px;
+}
+
+
+.rests-show_btn:hover{
+  background: #ee3e52;
+}
+

@@ -17,6 +17,34 @@ class RestsController < ApplicationController
     end
   end
 
+  def index
+    user = current_user
+    @rests = user.rests.order(rest_day: "DESC")
+  end
+
+  def edit
+    @rest = Rest.find(params[:id])
+  end
+
+  def update
+    rest = Rest.find(params[:id])
+    if rest.update(rest_params)
+      redirect_to rests_path
+      flash[:notice] = '休暇データが変更されました。' 
+    else
+      flash.now[:alert] = '入力に不備があります'
+      render :edit
+    end
+  end
+
+  def destroy
+    @rest = Rest.find(params[:id])
+    if @rest.destroy
+      redirect_to rests_path
+      flash[:notice] = '休暇データが削除されました。' 
+    end
+  end
+
 
 
   private

@@ -231,9 +231,14 @@
   width: 250px;
 }
 
-.atttendance-style{
+.attendance-style{
   height: 25px;
   width: 300px;
+}
+
+.attendance-style-flying{
+  height: 25px;
+  width:100px;
 }
 
 .attendance-button .button {
