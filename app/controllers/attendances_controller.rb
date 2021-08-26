@@ -17,7 +17,7 @@ class AttendancesController < ApplicationController
       redirect_to root_path
       flash[:notice] = '出勤データが送信されました。今日も1日頑張りましょう！' 
     else
-      flash.now[:alert] = '入力に不備があります'
+      flash[:notice] = '入力に不備があります'
       render :new
     end
   end
@@ -32,7 +32,7 @@ class AttendancesController < ApplicationController
       redirect_to corrects_path
       flash[:notice] = '出勤データが変更されました。' 
     else
-      flash.now[:alert] = '入力に不備があります'
+      flash[:notice] = '入力に不備があります'
       render :edit
     end
   end
