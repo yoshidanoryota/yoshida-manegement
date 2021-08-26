@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
       redirect_to root_path
       flash[:notice] = '新規コメントが送信されました。' 
     else
-      flash.now[:alert] = '入力に不備があります'
+      flash[:notice] = '入力に不備があります'
       render :new
     end
   end
@@ -27,7 +27,7 @@ class CommentsController < ApplicationController
       redirect_to root_path
       flash[:notice] = 'コメントが編集されました。' 
     else
-      flash.now[:alert] = '入力に不備があります'
+      flash[:notice] = '入力に不備があります'
       render :edit
     end
   end

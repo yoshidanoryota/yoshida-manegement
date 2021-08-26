@@ -7,54 +7,52 @@
     </div>
 </header>
 
-
+<div class= "index-body">
   <div class= "main-body">
-    <div class="sistem">
+
+      <div class="sistem">
         <div class="clock-main">
           <span id ="date" class="date"></span>
           <span id ="clock" class="time"></span>
         </div> 
-    </div>
+      </div>
 
-    <div class="sistem2">
-      <div class="sistem-sistem">
+      <div class="sistem">
+        <div class="list-div">
           <ul class="sistem-list">
             <%= link_to "出勤する", new_attendance_path, class: :sistem_btn %>
-            
             <%= link_to "退勤する", new_out_path, class: :sistem_btn %>
           </ul>
           <ul class="sistem-list">
             <%= link_to "休暇申請", new_rest_path, class: :sistem_btn %>
             <%= link_to "勤怠記録", corrects_path, class: :sistem_btn %>
           </ul>
+        </div>  
       </div>  
-    </div>  
 
-    <div class="comment-main">
-      <div class="comment-body">
-        <p class="comment">
-        <% @comment.each do |comment| %>
-         <%= comment.text %>
-        <% end %>
-        </p>
-      </div>
-
-      <% if current_user.division_id == 5 %>
-      
-        <div class= "comment-menu">
-        <% if @comment.present? %>
-          <%= link_to "コメントを編集する", "/comments/1/edit", class: :comment_btn %>
-
-        <%else%>  
-          <%= link_to "新規コメント", new_comment_path, class: :comment_btn%><br>
-        <%end%>  
-         
+      <div class="comment-main">
+        <div class="comment-body">
+          <p class="comment">
+          <% @comment.each do |comment| %>
+          <%= comment.text %>
+          <% end %>
+          </p>
         </div>
-      <% end %>
 
-    </div>  
+        <% if current_user.division_id == 5 %>
+        
+          <div class= "comment-menu">
+            <% if @comment.present? %>
+              <%= link_to "コメントを編集する", "/comments/1/edit", class: :comment_btn %>
+            <%else%>  
+              <%= link_to "新規コメント", new_comment_path, class: :comment_btn%><br>
+            <%end%>  
+          </div>
+        <% end %>
+      </div>
+    
   </div>
-
+</div>  
 
 
 

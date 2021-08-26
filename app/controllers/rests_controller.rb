@@ -12,7 +12,7 @@ class RestsController < ApplicationController
       redirect_to root_path
       flash[:notice] = '休暇申請が送信されました。' 
     else
-      flash.now[:alert] = '入力に不備があります'
+      flash[:notice] = '入力に不備があります'
       render :new
     end
   end
@@ -32,7 +32,7 @@ class RestsController < ApplicationController
       redirect_to rests_path
       flash[:notice] = '休暇データが変更されました。' 
     else
-      flash.now[:alert] = '入力に不備があります'
+      flash[:notice] = '入力に不備があります'
       render :edit
     end
   end

@@ -1,9 +1,9 @@
-
+<div class="user-form-body">
   <div class="form-wrapper">
     <h1 class="login">新規登録</h1>
     <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
       
-      <%= render 'layouts/error_messages', model: f.object %>
+      
 
        <div class="form-item">
         <%= f.label :■お名前（全角） %><span class="name-note">※スペースを空けずに入力してください</span><br />
@@ -53,6 +53,6 @@
       <p><%= link_to 'すでにアカウントをお持ちの場合', new_user_session_path %></p>
     </div>
   </div>
-
+</div>
 
 
