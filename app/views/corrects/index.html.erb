@@ -1,10 +1,7 @@
 <header class="header">
     <div class="box box-nav">
       <ul class="inner-nav">
-        <li><%= image_tag "risu.png", class:"list-pict1" %></li>
-        <li><%= image_tag "risu.png", class:"list-pict2" %></li>
-        <li><%= image_tag "risu.png", class:"list-pict3" %></li>
-        <%= link_to "#{current_user.name}さん", root_path, class: :menu %>
+        <%= link_to "#{current_user.name}さん", user_path(current_user.id), class: :menu %>
         <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: :menu %>
       </ul>
     </div>
@@ -12,15 +9,16 @@
 
 
 <div class="new-main">
-  <div>
+  <div class="back-btn">
     <%=link_to 'TOPにもどる', root_path, class:"back-btn" %>
+    <button class="print" onclick="window.print();">勤怠記録を印刷する</button>
   </div>
   <div class="title">
     <h1><%= "#{current_user.name}さんの勤怠記録" %></h1>
   </div>
 
  <div class="table-body">
-  <table>
+  <table class="correct-table">
     <tr>
       <th class="dateth">日付</th>
       <th class="table-th">出社</th>
@@ -39,15 +37,15 @@
         <td><%= attendance.attendance_day.strftime("%Y年 %m月 %d日(#{wd[attendance.attendance_day.wday]})") %></td>
      
         <% if attendance.arrive_id == 2 %>
-        <td>9:00（通常出勤）</td>
+        <td>9:00(通常出勤)</td>
         <%elsif attendance.arrive_id == 3%>
-        <td>9:00（在宅勤務）</td>
+        <td>9:00(在宅勤務)</td>
         <%elsif attendance.arrive_id == 4%>
-        <td>7:30（時差出勤）</td>
+        <td>7:30(時差出勤)</td>
         <%elsif attendance.arrive_id == 5%>
-        <td>10:30(時差出勤）</td>
+        <td>10:30(時差出勤)</td>
         <%elsif attendance.arrive_id == 6%>
-        <td>13:00(午後出勤）</td>
+        <td>13:00(午後出勤)</td>
         <%end%>
 
         <% if attendance.flying_id.present? %>

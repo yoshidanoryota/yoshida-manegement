@@ -1,10 +1,7 @@
 <header class="header">
     <div class="box box-nav">
       <ul class="inner-nav">
-        <li><%= image_tag "risu.png", class:"list-pict1" %></li>
-        <li><%= image_tag "risu.png", class:"list-pict2" %></li>
-        <li><%= image_tag "risu.png", class:"list-pict3" %></li>
-        <%= link_to "#{current_user.name}さん", root_path, class: :menu %>
+        <%= link_to "#{current_user.name}さん", user_path(current_user.id), class: :menu %>
         <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: :menu %>
       </ul>
     </div>
@@ -36,7 +33,7 @@
       <div class="weight-bold-text">
             出勤時間
       </div>
-          <%= f.collection_select(:arrive_id, Arrive.all, :id, :name, {}, {class:"atttendance-style"}) %>
+          <%= f.collection_select(:arrive_id, Arrive.all, :id, :name, {}, {class:"attendance-style"}) %>
     </div>
     <%# スタイル %>
 
@@ -45,11 +42,13 @@
       <div class="weight-bold-text">
             時間外時間(早出)
       </div>
-          <%= f.text_field :flying_id, class:"atttendance-style" %>
+          <%= f.text_field :flying_id, class:"attendance-style-flying", value:0%> 
+          <span class="weight-bold-text">時間</span>
           <div>
-          ※例） 時間外時間が1時間の場合：0100<br>
-          ※例） 時間外時間が30分の場合：0030<br>
-          ※例） 時間外時間が1時間30分の場合：0130
+          <br>
+          ※注) 半角数字で入力<br>
+          ※注) 時間単位で入力<br>
+          ※例) 時間外時間が1時間30分の場合：1.5
           </div>
     </div>
     <%# 早出 %>

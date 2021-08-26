@@ -1,0 +1,50 @@
+<header class="header">
+    <div class="box box-nav">
+      <ul class="inner-nav">
+        <%= link_to "#{current_user.name}さん", user_path(current_user.id), class: :menu %>
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: :menu %>
+      </ul>
+    </div>
+</header>
+
+<div class="new-main">
+  <div class="back-btn">
+    <%=link_to 'TOPにもどる', root_path, class:"back-btn" %>
+    <button class="print" onclick="window.print();">休暇記録を印刷する</button>
+  </div>
+
+   <div class="table-body">
+    <table class="correct-table">
+      <tr>
+        <th class="dateth">日付</th>
+        <th class="table-th-rests">休暇区分</th>
+        <th class="tabele-left"></th>
+      </tr>
+
+    <% @rests.each do |rest| %>
+
+      <tr>
+        <% wd = ["日", "月", "火", "水", "木", "金", "土"]%>
+        <td><%= rest.rest_day.strftime("%Y年 %m月 %d日(#{wd[rest.rest_day.wday]})") %></td>
+
+        <% if rest.holiday_id == 2 %>
+          <td>有給休暇</td>
+        <%elsif rest.holiday_id == 3%>
+          <td>有給休暇(半日)</td>
+        <%elsif rest.holiday_id == 4%>
+          <td>慶弔休暇</td>
+        <%elsif rest.holiday_id == 5%>
+          <td>忌引休暇</td>
+        <%elsif rest.holiday_id == 6%>
+          <td>病気休暇</td>
+        <%elsif rest.holiday_id == 7%>
+          <td>リフレッシュ休暇</td>  
+        <%end%>
+
+          <td class ="edit"><%= link_to "休暇を編集・削除する", edit_rest_path(rest),class: :rests_btn%></td>
+         
+      </tr>
+    <%end%>
+    </table>
+  </div>
+</div>

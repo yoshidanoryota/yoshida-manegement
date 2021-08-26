@@ -1,6 +1,4 @@
-table{
-  
-  
+.correct-table{
   border-collapse:separate;
   border-spacing: 0;
 }
@@ -22,7 +20,6 @@ table th{
   border-top: 1px solid #903c7b;
   border-bottom: 1px solid #903c85;
   box-shadow: 0px 1px 1px rgba(255,255,255,0.3) inset;
-  
   padding: 10px 0;
 }
 
@@ -31,8 +28,6 @@ table td{
   border-left: 1px solid #a8b7c5;
   border-bottom: 1px solid #a8b7c5;
   border-top:none;
-  box-shadow: 0px -3px 5px 1px #eee inset;
-  
   padding: 10px 0;
 }
 
@@ -53,7 +48,6 @@ table tr:last-child td:last-child {
   justify-content: center;
   margin-top: 60px;
 }
-
 
 
 .edit2{

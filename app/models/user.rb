@@ -8,6 +8,7 @@ has_many :attendances
 has_many :outs
 has_many :comments
 has_many :corrects
+has_many :rests
 
 
 

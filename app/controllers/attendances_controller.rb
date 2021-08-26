@@ -29,11 +29,11 @@ class AttendancesController < ApplicationController
   def update
     attendance = Attendance.find(params[:id])
     if attendance.update(attendance_params)
-      redirect_to root_path
+      redirect_to corrects_path
       flash[:notice] = '出勤データが変更されました。' 
     else
       flash.now[:alert] = '入力に不備があります'
-      render :new
+      render :edit
     end
   end
 
