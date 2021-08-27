@@ -1,15 +1,17 @@
 <header class="header">
     <div class="box box-nav">
       <ul class="inner-nav">
-        <%= link_to "#{current_user.name}さん", user_path(current_user.id), class: :menu %>
+        <li class="header-title">Manegement for Cloud</li>
+        <li class="menu-li">
+         <%= link_to "#{current_user.name}さん", user_path(current_user.id), class: :menu %>
          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: :menu %>
+         </li>
       </ul>
     </div>
 </header>
 
 <div class= "index-body">
   <div class= "main-body">
-
       <div class="sistem">
         <div class="clock-main">
           <span id ="date" class="date"></span>
