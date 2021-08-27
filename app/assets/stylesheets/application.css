@@ -58,6 +58,10 @@ body {
   .form-comment{
     width: 100%;
     }
+
+  .header-title{
+  font-size: 23px;
+  }
 }
 
 /* ========== レスポンシブ ========== */

@@ -12,7 +12,7 @@
 
 .header-title{
   margin-top:15px ;
-  margin-left: 27px;
+  margin-left: 10px;
   font-size: 25px;
   font-weight: bold;
   color: #fff;
@@ -21,8 +21,6 @@
   -webkit-box-reflect: below -35px 
   -webkit-linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,0) 10%,rgba(0, 0, 0, 0.6));
 }
-
-
 
 
 .box {
