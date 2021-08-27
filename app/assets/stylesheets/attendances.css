@@ -8,6 +8,7 @@
 
 .menu-li{
   margin-top: 27px;
+  height: 100%;
 }
 
 .header-title{
@@ -51,10 +52,11 @@
   color: #fff;
   height: 100%;
   text-decoration: none;
+  size: 20px;
 }
 
 .menu:hover {
-  background: #7a7a7a;
+  opacity: 0.6;
   list-style: none;
 }
 
