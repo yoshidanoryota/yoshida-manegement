@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2021_08_20_050004) do
   create_table "attendances", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.integer "arrive_id", null: false
-    t.integer "flying_id"
+    t.float "flying_id"
     t.date "attendance_day", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2021_08_20_050004) do
   create_table "outs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.integer "off_id", null: false
-    t.integer "extra_id"
+    t.float "extra_id"
     t.date "out_day", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

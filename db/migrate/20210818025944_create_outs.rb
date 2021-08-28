@@ -4,7 +4,7 @@ class CreateOuts < ActiveRecord::Migration[6.0]
 
       t.references :user,          null: false, foreign_key: true
       t.integer :off_id,      null: false
-      t.integer :extra_id
+      t.float :extra_id
       t.date :out_day,  null: false
 
       t.timestamps
