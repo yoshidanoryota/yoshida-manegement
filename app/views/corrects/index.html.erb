@@ -39,6 +39,7 @@
         <% wd = ["日", "月", "火", "水", "木", "金", "土"]%>
         <td><%= attendance.attendance_day.strftime("%Y年 %m月 %d日(#{wd[attendance.attendance_day.wday]})") %></td>
      
+        
         <% if attendance.arrive_id == 2 %>
         <td>9:00(通常出勤)</td>
         <%elsif attendance.arrive_id == 3%>
@@ -57,7 +58,9 @@
         <td>0</td>
         <%end%>
 
-      <% if out.off_id == 2 %>
+      <% if out.nil? %>
+        <td>登録されていません</td>
+      <% elsif out.off_id == 2 %>
         <td>17:30(通常出勤)</td>
         <%elsif out.off_id == 3%>
         <td>17:30(在宅勤務）</td>
@@ -70,7 +73,9 @@
         <%end%>
 
 
-        <% if out.extra_id.present? %>
+        <% if out.nil? %>
+        <td>登録されていません</td>
+        <% elsif out.extra_id.present? %>
         <td><%= out.extra_id %></td>
         <%else%>
         <td>0</td>
@@ -79,7 +84,12 @@
         
 
         <td class ="edit"><%= link_to "出勤を編集する", edit_attendance_path(attendance.id), class: :corrects_btn %></td>
+        
+        <% if out.nil? %>
+        <td>---------</td>
+        <%else%>
         <td class="edit2"><%= link_to "退勤を編集する", edit_out_path(out.id), class: :corrects_btn %></td>
+        <%end%>
       </tr>
     
 
